@@ -4,14 +4,13 @@ import React, { useState } from 'react'
 import Button from './Button'
 import Input from './Input'
 import Logo from './Logo'
-import { set, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import {login} from '../redux/authSlice'
-
+import { login } from '../redux/authSlice'
 
 function Signup() {
     const navigate = useNavigate()
-    const [ error, setError ] = useState('')
+    const [error, setError] = useState('')
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
 
@@ -20,17 +19,18 @@ function Signup() {
 
         try {
             const userData = await authService.createAccount(data)
-            createAccount(data)
-            if(userData) {
-                const userData = await authService.getCurrentUser()
+            // Removed the unnecessary createAccount(data) line
+            if (userData) {
+                const currentUserData = await authService.getCurrentUser()
 
-                if(userData) dispatch(login ({userData}))
-                navigate('/')
+                if (currentUserData) {
+                    dispatch(login({ userData: currentUserData }))
+                    navigate('/')
+                }
             }
         
         } catch (error) {
             setError(error.message)
-
         }
     }
 
@@ -63,7 +63,6 @@ function Signup() {
                         <Input
                             {...register("email", {
                                 required: true,
-                                
                             })}
                             label="Email : "
                             placeholder="Email Address"
