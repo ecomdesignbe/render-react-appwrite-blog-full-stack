@@ -1,11 +1,14 @@
-# React + Vite
+Project Blog Full-stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React + Vite
+- Tailwindcss
+- Appwrite
+- Redux Toolkit
+- React Redux
+- React Router DOM
+- React Hook Form
+- HTML React Parser
+- Tiny MCE
 
 
 - https://www.youtube.com/watch?v=Bvwq_S0n2pk&t=37342s

@@ -23,7 +23,7 @@ export class Service {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId, 
                 conf.appwriteCollectionId, 
-                slug
+                slug || null
             )
         } catch (error) {
             console.log('Appwrite service :: getDocument() :: ', error)
@@ -51,7 +51,7 @@ export class Service {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId, 
                 conf.appwriteCollectionId, 
-                slug,
+                slug || null,
                 {
                     title, 
                     content, 
@@ -131,7 +131,7 @@ export class Service {
         }
     }
     
-    // uploadFile
+    // getFilePreview
     getFilePreview(fileId) {
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,

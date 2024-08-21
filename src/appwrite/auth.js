@@ -1,7 +1,7 @@
 // start with appwrite auth service 
 
 import conf from '../conf/conf'
-import { Client, Account } from "appwrite";
+import { Client, Account, ID } from "appwrite";
 
 // code repeat from appwrite
 /*
@@ -25,7 +25,7 @@ export class AuthService {
     // createAccount
     async createAccount({email, password, name}) {
         try {
-            const userAccount = await this.account.create(ID.unique(email, password, name))
+            const userAccount = await this.account.create(ID.unique(), email, password, name)
             if (userAccount) {
                 return this.login({email, password})
             } else {
@@ -39,7 +39,8 @@ export class AuthService {
     // login
     async login({email, password}) {
         try {
-            return await this.account.createEmailSession(email, password)
+            return await this.account.createEmailPasswordSession(email, password)
+            // return await this.account.createEmailSession(email, password)
         } catch (error) {
             throw error
         }
@@ -66,7 +67,7 @@ export class AuthService {
     }
 }
 
-const authService = new AuthService
+const authService = new AuthService()
 
 export default authService
 
