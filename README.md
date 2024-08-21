@@ -9,6 +9,3 @@ Project Blog Full-stack
 - React Hook Form
 - HTML React Parser
 - Tiny MCE
-
-
-- https://www.youtube.com/watch?v=Bvwq_S0n2pk&t=37342s
